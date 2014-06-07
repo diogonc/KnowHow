@@ -19,6 +19,7 @@ namespace KnowHow.ViewModel
         public string Organizador { get; set; }
         public string UrlDaImagem { get; set; }
         public int QuantidadeDeInteressados { get; set; }
+        public int QuantidadeDeParticipantes { get; set; }
         public string HoraDeInicio { get; set; }
         public string Duracao { get; set; }
         public bool Aprovado { get; set; }
@@ -53,6 +54,7 @@ namespace KnowHow.ViewModel
             UrlDaImagem = curso.UrlDaImagem;
             Aprovado = curso.Aprovado;
             QuantidadeDeInteressados = curso.QuantidadeDeInteressados;
+            QuantidadeDeParticipantes = curso.QuantidadeDeParticipantes;
             _categorias = categorias;
             
         }

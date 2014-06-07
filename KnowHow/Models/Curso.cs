@@ -16,6 +16,7 @@ namespace KnowHow.Models
         public decimal Preco { get; set; }
         public string Organizador { get; set; }
         public int QuantidadeDeInteressados { get; set; }
+        public int QuantidadeDeParticipantes { get; set; }
         public string UrlDaImagem { get; set;  }
         public string HoraDeInicio { get; set; }
         public string Duracao { get; set; }
@@ -28,7 +29,7 @@ namespace KnowHow.Models
             Aprovado = false;
         }
 
-        public Curso(int id, string nome, DateTime data, string local, Categoria categoria, decimal preco, string organizador, int quantidadeDeInteressados, string horaDeInicio, string duracao, string descricao, bool aprovado,string urlDaImagem = "")
+        public Curso(int id, string nome, DateTime data, string local, Categoria categoria, decimal preco, string organizador, int quantidadeDeInteressados,int quantidadeDeParticipantes, string horaDeInicio, string duracao, string descricao, bool aprovado,string urlDaImagem = "")
         {
             Id = id;
             Nome = nome;
@@ -39,6 +40,7 @@ namespace KnowHow.Models
             Preco = preco;
             Organizador = organizador;
             QuantidadeDeInteressados = quantidadeDeInteressados;
+            QuantidadeDeParticipantes = quantidadeDeParticipantes;
             UrlDaImagem = urlDaImagem;
             HoraDeInicio = horaDeInicio;
             Duracao = duracao;
@@ -48,6 +50,11 @@ namespace KnowHow.Models
         public void AdicionarInteressado()
         {
             QuantidadeDeInteressados++;
+        }
+
+        public void AdicionarParticipante()
+        {
+            QuantidadeDeParticipantes++;
         }
     
         public void Aprovar()

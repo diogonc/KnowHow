@@ -173,6 +173,10 @@
     <Compile Include="Migrations\201406070233433_criadasTabelas.Designer.cs">
       <DependentUpon>201406070233433_criadasTabelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406070335366_AdicionadoParticipante.cs" />
+    <Compile Include="Migrations\201406070335366_AdicionadoParticipante.Designer.cs">
+      <DependentUpon>201406070335366_AdicionadoParticipante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -262,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406070233433_criadasTabelas.resx">
       <DependentUpon>201406070233433_criadasTabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406070335366_AdicionadoParticipante.resx">
+      <DependentUpon>201406070335366_AdicionadoParticipante.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

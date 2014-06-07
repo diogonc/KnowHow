@@ -24,7 +24,7 @@ namespace KnowHow.Controllers
         {
             var categorias = db.Categorias.ToList();
 
-            var cursoViewModel = new CursoViewModel(null, categorias );
+            var cursoViewModel = new CursoViewModel(null, categorias);
 
             return View(cursoViewModel);
         }
@@ -50,7 +50,7 @@ namespace KnowHow.Controllers
             }
 
             var categoria = db.Categorias.Find(cursoViewModel.CategoriaId);
-            var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, urlDaImagem);
+            var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, urlDaImagem);
 
             db.Cursos.Add(curso);
             db.SaveChanges();
@@ -82,7 +82,7 @@ namespace KnowHow.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
             var curso = db.Cursos.Find(id);
             var categorias = db.Categorias.ToList();
 
@@ -116,7 +116,7 @@ namespace KnowHow.Controllers
             if (ModelState.IsValid)
             {
                 var categoria = db.Categorias.Find(cursoViewModel.CategoriaId);
-                var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados,cursoViewModel.HoraDeInicio,cursoViewModel.Duracao,cursoViewModel.Descricao,cursoViewModel.Aprovado);
+                var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado);
 
                 db.Entry(curso).State = EntityState.Modified;
                 db.SaveChanges();

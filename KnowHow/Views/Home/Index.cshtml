@@ -1,17 +1,39 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@using KnowHow.ViewModel;
+@model KnowHow.ViewModel.CursosViewModel
+
+@{
+    ViewBag.Title = "Index";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="busca">
+    @using (Html.BeginForm("Buscar", "Home", FormMethod.Post, new { id = "buscar" }))
+    {
+        @Html.DropDownListFor(m => m.CategoriaId, Model.Categorias, "Selecione")
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+        <input type="text" name="Busca" placeholder="Buscar" value="@Model.Busca">
+    }
+</div>
+
+<div class="eventos">
+    @foreach (var item in Model.Cursos)
+    {
+        <a href="Curso/Detalhe/@item.Id" class="evento">
+            <span class="sombra"></span>
+            <div class="imagem">
+                <span class="data">@item.Data.ToString("dd/MM/yyyy")</span>
+                <img src="@item.UrlDaImagem">
+            </div>
+            <div class="curso-info">
+                <span class="titulo">@Html.DisplayFor(modelItem => item.Nome)</span>
+                <p>@Html.DisplayFor(modelItem => item.Descricao)</p>
+                <span class="visualizado">@item.QuantidadeDeInteressados</span>
+                <span class="participando">@item.QuantidadeDeParticipantes</span>
+            </div>
+        </a>
+    }
+    
+    @if (!Model.Cursos.Any())
+    {
+       <div>Nenhum curso encontrado</div>
+    }
+</div>
