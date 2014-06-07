@@ -55,7 +55,7 @@ namespace KnowHow.Controllers
             }
 
             var categoria = db.Categorias.Find(cursoViewModel.CategoriaId);
-            var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, urlDaImagem);
+            var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Url, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, urlDaImagem);
 
             db.Cursos.Add(curso);
             db.SaveChanges();
@@ -125,7 +125,7 @@ namespace KnowHow.Controllers
             if (!ModelState.IsValid) return View(cursoViewModel);
 
             var categoria = db.Categorias.Find(cursoViewModel.CategoriaId);
-            var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, cursoViewModel.UrlDaImagem);
+            var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Url, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, cursoViewModel.UrlDaImagem);
 
             db.Entry(curso).State = EntityState.Modified;
             db.SaveChanges();

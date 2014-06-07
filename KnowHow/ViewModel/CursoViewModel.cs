@@ -10,6 +10,7 @@ namespace KnowHow.ViewModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Url { get; set; }
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
         public string Local { get; set; }
@@ -43,6 +44,7 @@ namespace KnowHow.ViewModel
                 
             Id = curso.Id;
             Nome = curso.Nome;
+            Url = curso.Url;
             Descricao = curso.Descricao;
             CategoriaId = curso.Categoria == null ? 0 : curso.Categoria.Id;
             Data = curso.Data;

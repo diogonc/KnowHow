@@ -177,6 +177,10 @@
     <Compile Include="Migrations\201406070335366_AdicionadoParticipante.Designer.cs">
       <DependentUpon>201406070335366_AdicionadoParticipante.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406070737153_AdicionadaUrl.cs" />
+    <Compile Include="Migrations\201406070737153_AdicionadaUrl.Designer.cs">
+      <DependentUpon>201406070737153_AdicionadaUrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -289,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406070335366_AdicionadoParticipante.resx">
       <DependentUpon>201406070335366_AdicionadoParticipante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406070737153_AdicionadaUrl.resx">
+      <DependentUpon>201406070737153_AdicionadaUrl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

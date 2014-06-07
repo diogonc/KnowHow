@@ -9,6 +9,7 @@ namespace KnowHow.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
+        public string Url { get; set; }
         public string Descricao { get; set; }
         public DateTime Data { get; set; }
         public string Local { get; set; }
@@ -29,10 +30,11 @@ namespace KnowHow.Models
             Aprovado = false;
         }
 
-        public Curso(int id, string nome, DateTime data, string local, Categoria categoria, decimal preco, string organizador, int quantidadeDeInteressados,int quantidadeDeParticipantes, string horaDeInicio, string duracao, string descricao, bool aprovado,string urlDaImagem = "")
+        public Curso(int id, string nome, string url, DateTime data, string local, Categoria categoria, decimal preco, string organizador, int quantidadeDeInteressados,int quantidadeDeParticipantes, string horaDeInicio, string duracao, string descricao, bool aprovado,string urlDaImagem = "")
         {
             Id = id;
             Nome = nome;
+            Url = url;
             Descricao = descricao;
             Data = data;
             Local = local;
