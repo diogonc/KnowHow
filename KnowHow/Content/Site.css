@@ -483,6 +483,41 @@ a:hover {
     color: #1463AD;
 }
 
+.ui-dialog {
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+}
+.ui-dialog .ui-widget-header {
+    background: none transparent;
+    color: #2488e5;
+    font-size: 1.25em;
+    font-weight: normal;
+    border: none transparent;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+    background: none transparent;
+    border: none;
+}
+.ui-dialog .ui-widget-content input,
+.ui-dialog .ui-widget-content button {
+    width: 100%;
+    background: #666;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.ui-dialog .ui-widget-content a {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
 @media screen and (max-width: 800px) {
     .evento:first-child {
         display: block;
@@ -595,8 +630,10 @@ a:hover {
 }
 
 .mensagem-sucesso {
-    background: #090;
+    background: #81BD81;
     padding: 10px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
     color: #ffffff;
     display: none;
 }

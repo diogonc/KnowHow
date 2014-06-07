@@ -4,7 +4,7 @@
     });
 
     $("#Participar").click(function () {
-        $("#FormularioDeParticipacao").dialog();
+        $("#FormularioDeParticipacao").dialog({ width: 400 });
     });
 
     $("#enviar").click(function() {
