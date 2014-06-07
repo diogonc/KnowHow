@@ -3,7 +3,7 @@
 
 
 <div class="conteudo padding criar">
-    @using (Html.BeginForm("Create", "Curso", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "Curso"))
     {
         <div class="form-horizontal">
             @Html.ValidationSummary(true)

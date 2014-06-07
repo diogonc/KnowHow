@@ -20,14 +20,14 @@ namespace KnowHow.Controllers
             var logado = HttpContext.Session["logado"] != null ? Convert.ToBoolean(Session["logado"]) : false;
 
             if(logado)
-                return View(db.Cursos.ToList());
+                return View(db.Cursos.OrderBy(x => x.Aprovado).ThenBy(x => x.Data).ToList());
             else
                 return RedirectToAction("Login", "Account");
         }
 
         public ActionResult Create()
         {
-            var categorias = db.Categorias.ToList();
+            var categorias = db.Categorias.OrderBy(x => x.Nome).ToList();
 
             var cursoViewModel = new CursoViewModel(null, categorias);
 
@@ -37,7 +37,7 @@ namespace KnowHow.Controllers
         [HttpPost]
         public ActionResult Create(CursoViewModel cursoViewModel, HttpPostedFileBase arquivo)
         {
-            cursoViewModel._categorias = db.Categorias.ToList();
+            cursoViewModel._categorias = db.Categorias.OrderBy(x => x.Nome).ToList();
 
             if (!ModelState.IsValid) return View(cursoViewModel);
 
@@ -89,7 +89,7 @@ namespace KnowHow.Controllers
             }
 
             var curso = db.Cursos.Find(id);
-            var categorias = db.Categorias.ToList();
+            var categorias = db.Categorias.OrderBy(x => x.Nome).ToList();
 
             var cursoViewModel = new CursoViewModel(curso, categorias);
 
@@ -104,7 +104,7 @@ namespace KnowHow.Controllers
             }
 
             var curso = db.Cursos.Find(id);
-            var categorias = db.Categorias.ToList();
+            var categorias = db.Categorias.OrderBy(x => x.Nome).ToList();
 
             curso.AdicionarInteressado();
             db.Entry(curso).State = EntityState.Modified;
@@ -118,17 +118,19 @@ namespace KnowHow.Controllers
         [HttpPost]
         public ActionResult Edit(CursoViewModel cursoViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                var categoria = db.Categorias.Find(cursoViewModel.CategoriaId);
-                var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, cursoViewModel.UrlDaImagem);
+            var categorias = db.Categorias.OrderBy(x => x.Nome).ToList();
 
-                db.Entry(curso).State = EntityState.Modified;
-                db.SaveChanges();
+            cursoViewModel._categorias = categorias;
 
-                return RedirectToAction("Index");
-            }
-            return View(cursoViewModel);
+            if (!ModelState.IsValid) return View(cursoViewModel);
+
+            var categoria = db.Categorias.Find(cursoViewModel.CategoriaId);
+            var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, cursoViewModel.UrlDaImagem);
+
+            db.Entry(curso).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
@@ -148,7 +150,8 @@ namespace KnowHow.Controllers
             db.Entry(curso).State = EntityState.Modified;
             db.SaveChanges();
 
-            return RedirectToAction("Detalhe", new { id = id });
+            return RedirectToAction("Index","Home");
+            //return RedirectToAction("Detalhe", new { id = id });
         }
 
         protected override void Dispose(bool disposing)

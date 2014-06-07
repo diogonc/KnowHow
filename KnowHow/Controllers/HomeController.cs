@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using KnowHow.Models;
 using KnowHow.ViewModel;
-using Microsoft.Ajax.Utilities;
 
 namespace KnowHow.Controllers
 {
@@ -16,13 +13,13 @@ namespace KnowHow.Controllers
 
         public ActionResult Index()
         {
-            int categoriaId = HttpContext.Session["CategoriaId"] != null ? Convert.ToInt32(HttpContext.Session["CategoriaId"]) : 0;
+            var categoriaId = HttpContext.Session["CategoriaId"] != null ? Convert.ToInt32(HttpContext.Session["CategoriaId"]) : 0;
             var busca = HttpContext.Session["Busca"] != null ? HttpContext.Session["Busca"].ToString().ToUpper() : null;
             var maisProcurados = HttpContext.Session["MaisProcurados"] != null ? Convert.ToBoolean(Session["MaisProcurados"]) : false;
 
             var cursos = FiltraCursos(categoriaId, busca, maisProcurados);
 
-            var categorias = db.Categorias.ToList();
+            var categorias = db.Categorias.OrderBy(x => x.Nome).ToList();
 
             var listaDeCursosViewModel = cursos.Select(curso => new CursoViewModel(curso, categorias)).ToList();
 
@@ -33,7 +30,7 @@ namespace KnowHow.Controllers
 
         private List<Curso> FiltraCursos(int categoriaId, string busca, bool maisProcurados)
         {
-            var cursos = db.Cursos.Where(x => x.Data >= DateTime.Today).ToList();
+            var cursos = db.Cursos.Where(x => x.Data >= DateTime.Today && x.Aprovado).ToList();
 
             if (categoriaId != 0)
             {

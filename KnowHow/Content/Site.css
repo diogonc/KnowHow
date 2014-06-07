@@ -417,7 +417,7 @@ input:focus {
     display: block;
 }
 
-.criar input[type=text], .criar textarea, .criar input[type=date] {
+.criar input[type=text],.criar input[type=number], .criar textarea, .criar input[type=date] {
     width: 600px;
     background: #666;
     color: white;
@@ -445,6 +445,42 @@ input[type="button"] {
 
 .margin {
     margin: 15px 0;
+}
+
+table.table {
+    font-family: 'Oswald', sans-serif;
+}
+table.table th {
+    background: #666;
+    color: white;
+    font-weight: normal;
+    font-size: 1.25em;
+    padding: 10px;
+}
+table.table tbody  td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table.table tbody tr td:nth-child(2n+1) {
+    background: rgba(0, 0, 0, 0.01);
+}
+table.table tbody tr:nth-child(2n+2) {
+    background: #eee;
+}
+table.table tbody tr:nth-child(2n+1) {
+    background: #f3f3f3;
+    border-bottom: 1px solid #ddd;
+}
+table.table tbody tr:last-child td{
+    border-bottom: 3px solid #aaa;
+}
+
+a {
+    color: #2488e5;
+}
+a:hover {
+    color: #1463AD;
 }
 
 @media screen and (max-width: 800px) {

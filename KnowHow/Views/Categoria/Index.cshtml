@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<KnowHow.Models.Categoria>
 
 <div class="eventos">
-    <h2>Categorias</h2>
     <p>
         @Html.ActionLink("Cursos", "Index", "Curso") |
         @Html.ActionLink("Nova categoria", "Create")
     </p>
+    <h2>Categorias</h2>
     <table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th></th>
+            <th>Ações</th>
         </tr>
 
         @foreach (var item in Model)

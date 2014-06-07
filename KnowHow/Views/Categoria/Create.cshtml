@@ -8,10 +8,6 @@
     <h2>Criar Categoria</h2>
     @using (Html.BeginForm())
     {
-        @if (Model.id != 0)
-        {
-            Html.HiddenFor(model => model.Id)
-        }
         <div class="form-horizontal">
              @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
