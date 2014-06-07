@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace KnowHow.Models
 {
@@ -14,7 +11,7 @@ namespace KnowHow.Models
         public DateTime Data { get; set; }
         public string Local { get; set; }
         public Categoria Categoria { get; set; }
-        public decimal Preco { get; set; }
+        public string Preco { get; set; }
         public string Organizador { get; set; }
         public int QuantidadeDeInteressados { get; set; }
         public int QuantidadeDeParticipantes { get; set; }
@@ -30,7 +27,7 @@ namespace KnowHow.Models
             Aprovado = false;
         }
 
-        public Curso(int id, string nome, string url, DateTime data, string local, Categoria categoria, decimal preco, string organizador, int quantidadeDeInteressados,int quantidadeDeParticipantes, string horaDeInicio, string duracao, string descricao, bool aprovado,string urlDaImagem = "")
+        public Curso(int id, string nome, string url, DateTime data, string local, Categoria categoria, string preco, string organizador, int quantidadeDeInteressados, int quantidadeDeParticipantes, string horaDeInicio, string duracao, string descricao, bool aprovado, string urlDaImagem = "")
         {
             Id = id;
             Nome = nome;

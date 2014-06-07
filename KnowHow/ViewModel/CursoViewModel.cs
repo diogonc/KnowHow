@@ -16,7 +16,7 @@ namespace KnowHow.ViewModel
         public string Local { get; set; }
         public List<Categoria>_categorias { get; set; }
         public int CategoriaId { get; set; }
-        public decimal Preco { get; set; }
+        public string Preco { get; set; }
         public string Organizador { get; set; }
         public string UrlDaImagem { get; set; }
         public int QuantidadeDeInteressados { get; set; }
