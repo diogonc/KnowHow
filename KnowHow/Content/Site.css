@@ -1,0 +1,518 @@
+﻿body {
+    background: #eee;
+    padding: 0;
+    margin: 0;
+    font-family: arial, sans-serif;
+    color: #333;
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    min-height: 100%;
+    background: #333;
+    display: inline-block;
+    text-align: center;
+}
+
+section {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    height: 100%;
+    min-width: 87.5%;
+    display: inline-block;
+    font-size: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.logo {
+	width: 150px;
+    height: 135px;
+	display: inline-block;
+	background-image: url('sprite.png');
+	background-position: 0 0;
+	margin: 60px 0 0;
+}
+
+.menu {
+	list-style-type: none;
+	margin: 60px 0;
+	padding: 0;
+}
+
+.menu a {
+	padding: 5px;
+	color: #999;
+	font-size: 16px;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+	text-decoration: none;
+	display: block;
+}
+
+.menu a:hover {
+	background: #666;
+	color: white;
+}
+
+.botao-principal {
+	background: #2488e5;
+	color: white;
+	padding: 10px 25px;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    border: none;
+    margin: 0;
+}
+
+.botao-principal:hover {
+	background: #1a7edb;
+}
+
+.input, label {
+    font-size: 18px;
+}
+
+select {
+    display: inline-block;
+    background: #2488e5;
+    border: none;
+    font-size: 32px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.busca {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    display: block;
+    background: white;
+    width: 100%;
+    z-index: 999;
+}
+
+.busca select {
+    display: inline-block;
+    width: 270px;
+    background: #2488e5;
+    border: none;
+    font-size: 32px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+option {
+    font-size: 18px !important;
+}
+
+.busca input {
+    display: inline-block;
+    margin: 0;
+    font-size: 32px;
+    border: 0;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    font-weight: 300;
+    width: 280px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.eventos {
+    padding: 20px 30px;
+    margin-top: 70px;
+    font-size: 14px;
+}
+
+.eventos a {
+    margin: 10px 10px 0 0;
+}
+
+.eventos a .sombra {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    -webkit-box-shadow: inset 0 0 0 5px #2488e5;
+    box-shadow: inset 0 0 0 5px #2488e5;
+}
+
+.eventos a:hover .sombra {
+    display: block;
+}
+
+.evento:first-child {
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+    float: left;
+}
+
+.evento:first-child img {
+    width: 640px;
+    min-height: 300px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.evento:first-child .imagem {
+    width: 100%;
+    height: 360px;
+}
+
+.evento:first-child .curso-info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    height: 175px;
+    width: 100%;
+    z-index: 2;
+    left: 0;
+}
+
+.evento:first-child .curso-info .titulo {
+    font-size: 32px;
+    color: white;
+    margin: 15px;
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.evento:first-child .curso-info p {
+    font-size: 13px;
+    margin: 10px 15px;
+    color: white;
+    height: 32px;
+    overflow: hidden;
+}
+
+.evento:first-child .participando {
+	font-size: 18px;
+	padding: 5px 15px 5px 35px;
+}
+
+.participando {
+	background: #2488e5;
+	color: white;
+	margin: 5px 15px;
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+	position: relative;
+}
+
+.evento:first-child .participando:after {
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	background: url('sprite.png') -166px 0px;
+}
+
+.evento .participando:after {
+	content: "";
+	width: 22px;
+	height: 17px;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	background: url('sprite.png') -169px -32px;
+}
+
+.evento .participando {
+	font-size: 14px;
+	padding: 2px 10px 2px 30px;
+}
+
+.evento {
+	float: left;
+	background: white;
+	height: 175px;
+	vertical-align: top;
+	position: relative;
+}
+
+.evento .curso-info {
+	display: inline-block;
+	width: 48%;
+	vertical-align: top;
+}
+
+.data {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	background: rgba(0,0,0,0.3);
+	z-index: 3;
+	display: inline-block;
+	color: white;
+	font-family: 'Oswald', sans-serif;
+}
+
+.evento:first-child .data {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.evento .data {
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.evento .imagem {
+	width: 50%;
+	height: 175px;
+	overflow: hidden;
+	display: inline-block;
+    position: relative;
+}
+
+.evento img {
+	width: 300px;
+	height: auto;
+	float: left;
+}
+
+.evento .titulo {
+	font-size: 18px;
+	color: #2488e5;
+	margin: 15px;
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	font-weight: 300;
+	max-height: 47px;
+	overflow: hidden;
+}
+
+.evento p {
+	font-size: 12px;
+	margin: 10px 15px;
+	color: black;
+	height: 45px;
+	overflow: hidden;
+}
+
+.conteudo {
+    font-size: 14px;
+}
+
+.evento-imagem {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.evento-imagem img{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: -30%;
+}
+
+.evento-titulo {
+    font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	font-weight: 300;
+    display: block;
+    font-size: 48px;
+    margin: 0px;
+    padding: 15px;
+    background: #2488e5;
+    color: white;
+}
+
+.mapa {
+    float: left;
+    display: inline-block;
+    width: 30%;
+    background: #999;
+    height: 500px;
+    overflow: hidden;
+}
+
+.dados-evento {
+    font-size: 18px;
+    margin: 15px;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+    width: 55%;
+    text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+}
+
+.dados-evento li {
+    padding: 10px 0;
+}
+
+.dados-evento label {
+    color: #2488e5;
+}
+
+.padding {
+    padding: 30px;
+}
+
+.criar label {
+    font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+     margin-top: 10px;
+    display: block;
+}
+
+.criar input[type=text], .criar textarea, .criar input[type=date] {
+    width: 600px;
+    background: #666;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+}
+
+.criar textarea {
+    height: 150px;
+}
+
+input[type="button"] {
+    background: #666;
+	color: white;
+	padding: 10px 25px;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    border: none;
+    margin: 0;
+}
+
+.margin {
+    margin: 15px 0;
+}
+
+@media screen and (max-width: 800px) {
+    .evento:first-child {
+        display: block;
+        width: 97.5%;
+    }
+
+    .evento {
+        width: 97.5%;
+        display: block;
+    }
+
+    aside {
+        display: none;
+    }
+
+    section, .busca {
+        left: 0;
+    }
+
+    .eventos {
+        padding: 15px;
+        margin-top: 40px;
+    }
+
+    .busca input, .busca select {
+        font-size: 18px;
+    }
+
+    .busca select {
+        width: 140px;
+    }
+
+     .mapa {
+        height: 150px;
+        display: block;
+        float: none;
+        width: auto;
+    }
+
+    .dados-evento {
+        display: block;
+        width: 50%;
+    }
+
+}
+
+@media screen and (min-width: 700px) {
+    .evento:first-child {
+        width: 42%;
+        display: inline-block;
+    }
+
+    .evento {
+        width: 42%;
+        display: inline-block;
+    }
+
+    .evento:nth-child(2n+2) .imagem {
+        float: right;
+    }
+
+      .dados-evento {
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    .evento:first-child {
+        width: 48.5%;
+        display: inline-block;
+    }
+
+    .evento {
+        width: 48.5%;
+        display: inline-block;
+    }
+
+    .evento:nth-child(2n+2) .imagem {
+        float: right;
+    }
+
+    .dados-evento {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .evento:first-child {
+        width: 32.2%;
+        display: inline-block;
+    }
+
+    .evento {
+        width: 32.2%;
+        display: inline-block;
+    }
+}
+

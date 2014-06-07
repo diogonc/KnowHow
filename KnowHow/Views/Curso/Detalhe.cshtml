@@ -1,0 +1,47 @@
+﻿@using KnowHow.ViewModel
+@model KnowHow.ViewModel.CursoViewModel
+
+@{
+    ViewBag.Title = "Detalhe";
+}
+
+<div class="conteudo">
+    <div class="evento-imagem">
+        <img src="@Model.UrlDaImagem">
+    </div>
+    <h1 class="evento-titulo">
+        @Model.Nome
+    </h1>
+
+    <div class="mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737.5847528216304!2d-54.601580700000014!3d-20.48224159999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9486e8acd4851dd9%3A0x71cb6beee6a3840b!2sRua+Spipe+Calarge%2C+271+-+Jardim+Tv+Morena!5e0!3m2!1sen!2sbr!4v1402095109620" width="800" height="500" frameborder="0" style="border:0"></iframe>
+    </div>
+
+    <div class="dados-evento">
+
+        <li>
+            <label>Descrição:</label>
+            @Model.Descricao
+        </li>
+        <li>
+            <label>Data:</label>
+            @Model.Data.ToString("dd/MM/yyyy")
+        </li>
+        <li>
+            <label>Hora de Inicio:</label>
+            @Model.HoraDeInicio
+        </li>
+        <li>
+            <label>Duração:</label>
+            @Model.Duracao
+        </li>
+        <li>
+            <label>Local do Evento:</label>
+            @Model.Local
+        </li>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

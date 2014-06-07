@@ -1,0 +1,108 @@
+﻿@using KnowHow.ViewModel
+@model KnowHow.ViewModel.CursoViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="conteudo padding criar">
+    @using (Html.BeginForm("Create", "Curso", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+
+
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Categoria</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.CategoriaId, Model.Categorias)
+                    @Html.ValidationMessageFor(model => model.CategoriaId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nome)
+                    @Html.ValidationMessageFor(model => model.Nome)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Descrição</label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Descricao, new { })
+                    @Html.ValidationMessageFor(model => model.Descricao)
+                </div>
+            </div>
+
+            <label for="arquivo">Upload Image:</label>
+            <input type="file" name="arquivo" id="arquivo" style="width: 100%;" />
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Data de Realização</label>
+                <div class="col-md-10">
+                    <input type="date" name="Data" value="@Model.Data.ToString("yyyy-MM-dd")">
+                    @Html.ValidationMessageFor(model => model.Data)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Hora de Inicio</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HoraDeInicio)
+                    @Html.ValidationMessageFor(model => model.HoraDeInicio)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Duração</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Duracao)
+                    @Html.ValidationMessageFor(model => model.Duracao)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Local, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Local)
+                    @Html.ValidationMessageFor(model => model.Local)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Preco, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Preco)
+                    @Html.ValidationMessageFor(model => model.Preco)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Organizador, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Organizador)
+                    @Html.ValidationMessageFor(model => model.Organizador)
+                </div>
+            </div>
+
+
+
+            <div class="margin">
+                <input type="submit" value="Salvar" class="botao-principal" />
+            </div>
+
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
