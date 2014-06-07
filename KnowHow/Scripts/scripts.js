@@ -6,4 +6,11 @@
     $("#Participar").click(function () {
         $("#FormularioDeParticipacao").dialog();
     });
+
+    $("#enviar").click(function() {
+        $(".mensagem-sucesso").show().delay( 800 ).queue(function () {
+            location.href = "/";
+            $(this).dequeue();
+        });
+    });
 });

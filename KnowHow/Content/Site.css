@@ -593,3 +593,10 @@ a:hover {
 .ui-widget-header {
     background: #2488e5;
 }
+
+.mensagem-sucesso {
+    background: #090;
+    padding: 10px;
+    color: #ffffff;
+    display: none;
+}

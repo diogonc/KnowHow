@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using KnowHow.Models;
 
@@ -17,7 +13,7 @@ namespace KnowHow.Controllers
         // GET: /Categoria/
         public ActionResult Index()
         {
-            return View(db.Categorias.ToList());
+            return View(db.Categorias.OrderBy( x => x.Nome).ToList());
         }
 
         // GET: /Categoria/Details/5

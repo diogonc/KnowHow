@@ -74,6 +74,11 @@ namespace KnowHow.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult Contato()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
