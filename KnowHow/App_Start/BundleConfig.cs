@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace KnowHow
 {
@@ -10,6 +9,7 @@ namespace KnowHow
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                        "~/Scripts/jquery-{version}.js",
+                       "~/Scripts/jquery-ui-1.10.4.custom.min.js",
                        "~/Scripts/scripts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -25,6 +25,7 @@ namespace KnowHow
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/ui-lightness/jquery-ui-1.10.4.custom.css",
                       "~/Content/site.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,

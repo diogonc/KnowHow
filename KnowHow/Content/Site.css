@@ -580,3 +580,16 @@ a:hover {
         display: inline-block;
     }
 }
+
+.participar {
+    margin: 10px;
+    display: none;
+}
+
+.participar a {
+    color: #fff;
+}
+
+.ui-widget-header {
+    background: #2488e5;
+}
