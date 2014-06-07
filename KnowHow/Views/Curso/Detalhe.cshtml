@@ -39,8 +39,8 @@
             <label>Local do Evento:</label>
             @Model.Local
         </li>
-        @Html.ActionLink("Participar", "Participar", "Curso", null, new { @class = "botao-principal" })
-    </div>
+        <a class="botao-principal" href="../Participar/@Model.Id" class="evento">Participar</a>
+</div>
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")

@@ -52,24 +52,28 @@ namespace KnowHow.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (ModelState.IsValid)
-            {
-                var user = await UserManager.FindAsync(model.Email, model.Password);
-                if (user != null)
-                {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username or password.");
-                }
-            }
+
+            HttpContext.Session["logado"] = true;
+            return RedirectToLocal(returnUrl);
+
+            //if (ModelState.IsValid)
+            //{
+            //    var user = await UserManager.FindAsync(model.Email, model.Password);
+            //    if (user != null)
+            //    {
+            //        await SignInAsync(user, model.RememberMe);
+            //        return RedirectToLocal(returnUrl);
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError("", "Invalid username or password.");
+            //    }
+            //}
 
             // If we got this far, something failed, redisplay form
+
             return View(model);
         }
 
@@ -389,7 +393,6 @@ namespace KnowHow.Controllers
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
@@ -419,23 +422,22 @@ namespace KnowHow.Controllers
                         // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                         // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                         // SendEmail(user.Email, callbackUrl, "Confirm your account", "Please confirm your account by clicking this link");
-                        
+
+                        HttpContext.Session["logado"] = true;
                         return RedirectToLocal(returnUrl);
                     }
                 }
                 AddErrors(result);
             }
-
+            HttpContext.Session["logado"] = true;
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }
 
-        //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+       
         public ActionResult LogOff()
         {
+            HttpContext.Session["logado"] = false;
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }

@@ -17,7 +17,12 @@ namespace KnowHow.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Cursos.ToList());
+            var logado = HttpContext.Session["logado"] != null ? Convert.ToBoolean(Session["logado"]) : false;
+
+            if(logado)
+                return View(db.Cursos.ToList());
+            else
+                return RedirectToAction("Login", "Account");
         }
 
         public ActionResult Create()
@@ -116,7 +121,7 @@ namespace KnowHow.Controllers
             if (ModelState.IsValid)
             {
                 var categoria = db.Categorias.Find(cursoViewModel.CategoriaId);
-                var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado);
+                var curso = new Curso(cursoViewModel.Id, cursoViewModel.Nome, cursoViewModel.Data, cursoViewModel.Local, categoria, cursoViewModel.Preco, cursoViewModel.Organizador, cursoViewModel.QuantidadeDeInteressados, cursoViewModel.QuantidadeDeParticipantes, cursoViewModel.HoraDeInicio, cursoViewModel.Duracao, cursoViewModel.Descricao, cursoViewModel.Aprovado, cursoViewModel.UrlDaImagem);
 
                 db.Entry(curso).State = EntityState.Modified;
                 db.SaveChanges();
@@ -131,7 +136,19 @@ namespace KnowHow.Controllers
             Curso curso = db.Cursos.Find(id);
             db.Cursos.Remove(curso);
             db.SaveChanges();
+
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Participar(int id)
+        {
+            var curso = db.Cursos.Find(id);
+            
+            curso.AdicionarParticipante();
+            db.Entry(curso).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Detalhe", new { id = id });
         }
 
         protected override void Dispose(bool disposing)
